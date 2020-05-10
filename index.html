@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar</title>
+    <link rel="stylesheet" href="src/css/style.css">
+</head>
+
+<body>
+    <div id="modal" class="modal"></div>
+
+    <header>
+        <div class="month__slide">
+            <div class="year__slide">
+                <div id="previous-year" class="year__slide__arrow">
+                    <span>&#10094;</span>
+                </div>
+                <div class="year__slide__number">
+                    <h3></h3>
+                </div>
+                <div id="next-year" class="year__slide__arrow">
+                    <span>&#10095;</span>
+                </div>
+            </div>
+            <div id="previous-month" class="month__slide__arrow">
+                <span>&#10094;</span>
+            </div>
+            <div class="month__slide__name">
+                <h2></h2>
+                <input type="text" id="clock" disabled>
+            </div>
+            <div id="next-month" class="month__slide__arrow">
+                <span>&#10095;</span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="calendar">
+            <div class="calendar__week">
+                <div>Mon</div>
+                <div>Tue</div>
+                <div>Wed</div>
+                <div>Thu</div>
+                <div>Fri</div>
+                <div>Sat</div>
+                <div>Sun</div>
+            </div>
+            <div class="calendar__alldays">
+                <div id="calendar-days" class="calendar__days"></div>
+            </div>
+        </div>
+        <div id="alerts" class="alerts"></div>
+
+        <template id="form">
+            <span class="close" data-close="close">close</span>
+            <form action="/" name="formadd" id="formadd" class="form__add">
+                <div>
+                    <label for="ftitle">Title:</label>
+                    <input type="text" name="ftitle" id="ftitle">
+                    <label for="ftitle" class="error">Title required</label>
+                </div>
+                <div>
+                    <label for="finitialdate">Initial Date:</label>
+                    <input type="datetime-local" name="finitialdate" id="finitialdate" value="">
+                    <label for="finitialdate" class="error">Initial date required</label>
+                </div>
+                <div>
+                    <label for="fisenddate"><input type="checkbox" name="fisenddate" id="fisenddate">
+                        End Date</label>
+                    <label for="fenddate"></label>
+                    <input type="datetime-local" name="fenddate" id="fenddate" value="" disabled>
+                    <label for="fenddate" class="error">Please enter end date. (default: Initial Date + 1 hr</label>
+                </div>
+                <div>
+                    <label for="fisremind"> <input type="checkbox" name="fisremind" id="fisremind">
+                        Remind me before the event starts</label>
+                    <label for="fremind"></label>
+                    <select name="fremind" id="fremind" disabled>
+                        <option value="">--</option>
+                        <option value="5">5 min.</option>
+                        <option value="10">10 min.</option>
+                        <option value="15">15 min.</option>
+                        <option value="30">30 min.</option>
+                        <option value="60">60 min.</option>
+                    </select>
+                    <label for="fremind" class="error">Enter time to remind you</label>
+                </div>
+                <div>
+                    <label for="fdescription">Description:</label>
+                    <textarea name="fdescription" id="fdescription" cols="30" rows="10"></textarea>
+                    <label for="fdescription" class="error">Enter a description (Max 500)</label>
+                </div>
+                <div>
+                    <label for="feventtype">Event type</label>
+                    <select name="feventtype" id="feventtype">
+                        <option value="">--</option>
+                        <option value="meeteng">Meeting</option>
+                        <option value="sports">Personal</option>
+                        <option value="birthday">Study</option>
+                    </select>
+                    <label for="feventtype" class="error">Enter event type</label>
+                </div>
+                <div>
+                    <input type="button" data-close="close" value="Cancel">
+                    <input type="reset" value="Clear">
+                    <input type="submit" value="Create">
+                </div>
+            </form>
+        </template>
+
+    </main>
+
+    <script src="src/js/app.js"></script>
+
+</body>
+
+</html>
